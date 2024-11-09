@@ -1,0 +1,38 @@
+[project]
+name = "intfinfo"
+version = "0.1.0"
+description = "CLI utility displaying information for network interfaces"
+readme = "README.md"
+authors = [
+    { name = "Denys (thenester) Nesterenko", email = "denys@thenester.co" },
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = ["netifaces>=0.11.0", "tabulate>=0.9.0", "typer>=0.13.0"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Repository = "https://github.com/thenester/intfinfo"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = ["autopep8>=2.3.1", "pylint>=3.3.1", "ruff>=0.7.3"]
+
+[project.scripts]
+intfinfo = "intfinfo.main:main"
