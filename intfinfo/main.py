@@ -27,27 +27,23 @@
 from ipaddress import IPv4Network
 from os import path
 from typing import Optional
-from typing_extensions import Annotated
 
-import typer
+import click
 import netifaces
 from tabulate import tabulate
 
-app = typer.Typer()
 
-
-@app.command()
-def main(
-    interface_list: Annotated[Optional[list[str]],
-                              typer.Option("--interface", "-i",
-                                           help="Interface name")] = None
-) -> None:
+@click.command()
+@click.option("-i", "--interface", "interfaces",
+              metavar="iface_name",
+              multiple=True,
+              help="Network interface name")
+def main(interfaces: Optional[tuple[str]]) -> None:
     """Displays tabulated network interfaces information."""
-    interfaces = netifaces.interfaces()
     data = []
 
-    for iface in interfaces:
-        if interface_list and iface not in interface_list:
+    for iface in netifaces.interfaces():
+        if interfaces and iface not in interfaces:
             continue
 
         interface_info = netifaces.ifaddresses(iface)
@@ -100,4 +96,4 @@ def main(
 
 
 if __name__ == "__main__":
-    app()
+    main()
