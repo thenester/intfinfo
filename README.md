@@ -2,7 +2,7 @@
 
 [![GitHub Actions Build](https://github.com/thenester/intfinfo/actions/workflows/build.yml/badge.svg)](https://github.com/thenester/intfinfo/actions/workflows/build.yml)
 
-A sandbox for testing GitHub Actions and PyOxydizer for a small Python project implementing displaying the network interfaces information.
+A sandbox for testing GitHub Actions and PyOxydizer for a small Python project displaying the network interfaces information.
 
 Usage:
 
